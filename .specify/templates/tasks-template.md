@@ -12,6 +12,13 @@ description: "Task list template for feature implementation"
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
+> Principle Alignment (Constitution v1.0.0):
+> - Modularity: Tasks MUST specify owning module when touching code (e.g., `agents/ClrSlate.Modules.AgentsAppModule/...`).
+> - Contracts: Any new public endpoint/event task MUST include a subtask for version & doc update.
+> - Test-First: Each implementation task SHOULD have an immediately preceding test task unless explicitly waived.
+> - Observability: Critical path tasks MUST include metric/log/trace instrumentation subtasks.
+> - Security: Endpoint tasks MUST list validation + auth concerns explicitly.
+
 ## Format: `[ID] [P?] [Story] Description`
 
 - **[P]**: Can run in parallel (different files, no dependencies)

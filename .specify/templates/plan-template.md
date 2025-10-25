@@ -31,7 +31,17 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+The following MUST be confirmed (map to Constitution v1.0.0):
+
+1. Modular Boundary Integrity: Planned feature resides in exactly one owning module; cross-module calls go through public contracts only.
+2. Contract-Driven & Versioned APIs: Any new external endpoint/event has proposed semantic version & documented DTO shapes.
+3. Test-First Fast Feedback: At least one failing (to-be-written) test category identified (unit, contract, integration) per critical behavior.
+4. Observability & Operational Transparency: Metrics, trace spans, and structured log events identified for primary success & failure paths.
+5. Secure-by-Default & Least Privilege: Input validation + auth/authorization model described; secrets usage enumerated.
+6. Performance/SLO Placeholder: Initial SLO drafted or explicit TODO with owner/date.
+7. Change Size Projection: Estimated max PR size (<500 added lines) or justification if larger.
+
+Any unmet gate MUST be marked as a blocking TODO with owner & resolution date before implementation proceeds.
 
 ## Project Structure
 
