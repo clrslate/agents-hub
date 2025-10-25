@@ -1,0 +1,25 @@
+<Solution>
+  <Folder Name="/services/">
+    <Project Path="services/ClrSlate.AgentHub.ApiService/ClrSlate.AgentHub.ApiService.csproj" />
+  </Folder>
+  <Folder Name="/services/agents/">
+    <Project Path="services/agents/ClrSlate.Modules.AgentsAppModule/ClrSlate.Modules.AgentsAppModule.csproj" Id="824ec7f3-6aac-4283-adf8-d45ff47db0b2" />
+  </Folder>
+  <Folder Name="/services/todo/">
+    <Project Path="services/todo/ClrSlate.AgentHub.Modules.ToDoModule/ClrSlate.AgentHub.Modules.ToDoModule.csproj" Id="38e6acd5-ca23-4a96-8813-7db56d14f6ef" />
+  </Folder>
+  <Folder Name="/services/weather/">
+    <Project Path="services/weather/ClrSlate.AgentHub.Modules.WeatherModule/ClrSlate.AgentHub.Modules.WeatherModule.csproj" Id="5a220149-541c-4c46-a123-4479d883cf68" />
+  </Folder>
+  <Folder Name="/shared/">
+    <Project Path="shared/ClrSlate.Abp.Hosting.ServiceDefaults/ClrSlate.Abp.Hosting.ServiceDefaults.csproj" />
+    <Project Path="shared/ClrSlate.AgentHub.ServiceDefaults/ClrSlate.AgentHub.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ClrSlate.Modules.AgentsAppModule.Tests/ClrSlate.Modules.AgentsAppModule.Tests.csproj" Id="c076a2b7-2524-44ae-8754-9f5da73ecf2f" />
+  </Folder>
+  <Folder Name="/web/">
+    <Project Path="web/ClrSlate.AgentHub.Web/ClrSlate.AgentHub.Web.csproj" />
+  </Folder>
+  <Project Path="ClrSlate.AgentHub.AppHost/ClrSlate.AgentHub.AppHost.csproj" />
+</Solution>

@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.4.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>9d689604-6584-4fa1-b2f0-d33504ddcdda</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\services\ClrSlate.AgentHub.ApiService\ClrSlate.AgentHub.ApiService.csproj" />
+    <ProjectReference Include="..\web\ClrSlate.AgentHub.Web\ClrSlate.AgentHub.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.5.1" />
+    <PackageReference Include="Aspire.Hosting.MongoDB" Version="9.5.1" />
+  </ItemGroup>
+
+</Project>
