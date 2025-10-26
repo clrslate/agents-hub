@@ -1,8 +1,7 @@
 using AutoMapper;
-using ClrSlate.Modules.AgentsAppModule.Models; // DTOs (also contains a different AgentDefinition record)
+using ClrSlate.Modules.AgentsAppModule.Models; 
 using Volo.Abp.AutoMapper;
-// Alias the persistence entity to avoid ambiguity with Models.AgentDefinition
-using EntityAgentDefinition = ClrSlate.Modules.AgentsAppModule.Data.Entities.AgentDefinition;
+using EntityAgentDefinition = ClrSlate.Modules.AgentsAppModule.Data.Entities.AgentEntity;
 
 namespace ClrSlate.Modules.AgentsAppModule.MappingProfiles;
 
@@ -29,6 +28,9 @@ public sealed class AgentMappingProfile : Profile
             .ForMember(d => d.Instructions, o => o.MapFrom(s => s.Instructions ?? string.Empty))
             .ForMember(d => d.Model, o => o.MapFrom(s => s.Model))
             .ForMember(d => d.Version, o => o.MapFrom(_ => 1L));
+
+        // Entity -> Details
+        CreateMap<EntityAgentDefinition, AgentDefinition>();
 
         // Update -> Entity
         var updateMap = CreateMap<UpdateAgentRequest, EntityAgentDefinition>()

@@ -6,5 +6,5 @@ public sealed record CreateAgentRequest
     public string? DisplayName { get; init; }
     public string? Description { get; init; }
     public string? Instructions { get; init; }
-    public required string Model { get; init; } = string.Empty;
+    public required ModelReference Model { get; init; }
 }

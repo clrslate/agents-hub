@@ -26,18 +26,22 @@ Exit Criteria:
 - Validation unit tests green
 
 ### Phase 2: Repository & Service Layer
-1. Extend repository with:
-   - InsertAsync (enforces uniqueness when not covered by index exception)
-   - GetByNameAsync (excluding deleted)
-   - GetDetailsIncludingDeletedAsync
-   - ListAsync (paged, filter includeDeleted)
-   - UpdateWithVersionAsync (atomic update) -> returns new Version
-   - SoftDeleteWithVersionAsync
-2. Domain service orchestrating validation + repository calls
-3. Concurrency conflict path returning standardized error
+Repository Strategy UPDATE (2025-10-26): We will NOT maintain a bespoke `IAgentRepository`; instead we inject `IRepository<AgentDefinition,string>` directly (see `specs/repository-guidelines.md`).
+
+Required service capabilities:
+1. Create (uniqueness via unique index; duplicate => 409 at API layer)
+2. Get (details, excluding deleted unless explicitly requested by future include flag)
+3. List (paged, exclude deleted by default, optional includeDeleted param at controller phase)
+4. Update with optimistic concurrency (Version check in service; optional atomic helper if contention justifies)
+5. Soft delete with concurrency (increment Version)
+
+Implementation Notes:
+- Concurrency: Fetch + compare version; if mismatch throw `ConcurrencyConflictException` (contains current version).
+- Atomic path (future): Could be added via extension method on IMongoCollection if required; not mandatory initially.
+- Logging: Info on create/update/delete; warn on conflict.
 
 Exit Criteria:
-- Unit tests cover success + concurrency conflict + soft delete
+- Unit tests cover success + concurrency conflict + soft delete using generic repository
 
 ### Phase 3: API Endpoints
 1. Controller `AgentsController`

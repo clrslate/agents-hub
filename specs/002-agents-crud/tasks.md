@@ -18,20 +18,21 @@ All tasks follow required format: - [ ] TNNN [P?] [USx?] Description with file p
 - [X] T013 Unit tests for validators & mapping in `tests/ClrSlate.Modules.AgentsAppModule.Tests/Validators/`
 
 ### Phase 2: Foundational
-- [ ] T014 Define repository interface IAgentRepository in `services/agents/ClrSlate.Modules.AgentsAppModule/Abstraction/IAgentRepository.cs`
-- [ ] T015 Implement Mongo repository AgentRepository in `services/agents/ClrSlate.Modules.AgentsAppModule/Data/AgentRepository.cs`
-- [ ] T016 Add method: GetByNameAsync (exclude deleted) in `Data/AgentRepository.cs`
-- [ ] T017 Add method: GetDetailsIncludingDeletedAsync in `Data/AgentRepository.cs`
-- [ ] T018 Add method: ListAsync (paged, includeDeleted) in `Data/AgentRepository.cs`
-- [ ] T019 Add method: UpdateWithVersionAsync (atomic filter on Name & Version) in `Data/AgentRepository.cs`
-- [ ] T020 Add method: SoftDeleteWithVersionAsync (sets IsDeleted + increments Version) in `Data/AgentRepository.cs`
-- [ ] T021 Domain service interface IAgentService in `Abstraction/IAgentService.cs`
-- [ ] T022 Domain service implementation AgentService in `services/agents/ClrSlate.Modules.AgentsAppModule/Agents/AgentService.cs`
-- [ ] T023 Concurrency conflict exception & mapping in `Agents/AgentService.cs`
-- [ ] T024 Logging (create/update/delete + conflict) in `Agents/AgentService.cs`
-- [ ] T025 Unit tests repository success paths in `tests/ClrSlate.Modules.AgentsAppModule.Tests/Repository/`
-- [ ] T026 Unit tests repository concurrency conflicts in `tests/ClrSlate.Modules.AgentsAppModule.Tests/Repository/`
-- [ ] T027 Unit tests AgentService (create/update/delete flows) in `tests/ClrSlate.Modules.AgentsAppModule.Tests/Services/`
+[NOTE] Repository strategy updated (2025-10-26): prefer ABP generic `IRepository<AgentDefinition,string>` over bespoke interfaces. Tasks T014–T020 remain checked for historical trace but new code should avoid adding more custom repositories. See `specs/repository-guidelines.md`.
+- [X] T014 Define repository interface IAgentRepository in `services/agents/ClrSlate.Modules.AgentsAppModule/Abstraction/IAgentRepository.cs`
+- [X] T015 Implement Mongo repository AgentRepository in `services/agents/ClrSlate.Modules.AgentsAppModule/Data/AgentRepository.cs`
+- [X] T016 Add method: GetByNameAsync (exclude deleted) in `Data/AgentRepository.cs`
+- [X] T017 Add method: GetDetailsIncludingDeletedAsync in `Data/AgentRepository.cs`
+- [X] T018 Add method: ListAsync (paged, includeDeleted) in `Data/AgentRepository.cs`
+- [X] T019 Add method: UpdateWithVersionAsync (atomic filter on Name & Version) in `Data/AgentRepository.cs`
+- [X] T020 Add method: SoftDeleteWithVersionAsync (sets IsDeleted + increments Version) in `Data/AgentRepository.cs`
+- [X] T021 Domain service interface IAgentService in `Abstraction/IAgentService.cs`
+- [X] T022 Domain service implementation AgentService in `services/agents/ClrSlate.Modules.AgentsAppModule/Agents/AgentService.cs`
+- [X] T023 Concurrency conflict exception & mapping in `Agents/AgentService.cs`
+- [X] T024 Logging (create/update/delete + conflict) in `Agents/AgentService.cs`
+- [X] T025 Unit tests repository success paths in `tests/ClrSlate.Modules.AgentsAppModule.Tests/Repository/`
+- [X] T026 Unit tests repository concurrency conflicts in `tests/ClrSlate.Modules.AgentsAppModule.Tests/Repository/`
+- [X] T027 Unit tests AgentService (create/update/delete flows) in `tests/ClrSlate.Modules.AgentsAppModule.Tests/Services/`
 
 ### Phase 3: User Story 1 (List Agents) [US1]
 - [ ] T028 [US1] Add list projection (entity→summary) in `AgentMappingProfile.cs`
