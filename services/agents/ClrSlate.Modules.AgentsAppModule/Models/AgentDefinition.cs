@@ -7,6 +7,7 @@ public record AgentDefinition
     public string Description { get; set; } = default!;
     public string Instructions { get; set; } = default!;
     public ModelConfig? Model { get; set; }
+    public long Version { get; set; } = 1;
 }
 
 public record ModelConfig

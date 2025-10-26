@@ -17,4 +17,10 @@
     <ProjectReference Include="..\todo\ClrSlate.AgentHub.Modules.ToDoModule\ClrSlate.AgentHub.Modules.ToDoModule.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="openapi\agents-crud.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

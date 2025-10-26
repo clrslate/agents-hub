@@ -9,4 +9,8 @@ public class AgentDefinition : FullAuditedAggregateRoot<string>
     public string Description { get; set; } = default!;
     public string Instructions { get; set; } = default!;
     public string Model { get; set; } = default!;
+    /// <summary>
+    /// Optimistic concurrency version. Starts at 1 and increments on each successful update or soft delete.
+    /// </summary>
+    public long Version { get; set; } = 1;
 }

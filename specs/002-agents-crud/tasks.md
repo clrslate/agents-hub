@@ -3,19 +3,19 @@
 All tasks follow required format: - [ ] TNNN [P?] [USx?] Description with file path.
 
 ### Phase 1: Setup
-- [ ] T001 Create feature task folder structure confirmation (already present) in `specs/002-agents-crud/`
-- [ ] T002 Add `Version` property (long, default=1) to persistence entity in `services/agents/ClrSlate.Modules.AgentsAppModule/Data/Entities/AgentDefinition.cs`
-- [ ] T003 Add `Version` property to in-memory model (if needed for mapping) in `services/agents/ClrSlate.Modules.AgentsAppModule/Models/AgentDefinition.cs`
-- [ ] T004 Rename Mongo collection property `ToDos` to `Agents` in `services/agents/ClrSlate.Modules.AgentsAppModule/Data/AgentsDbContext.cs`
-- [ ] T005 Implement Mongo model configuration + unique index on Name in `services/agents/ClrSlate.Modules.AgentsAppModule/Data/AgentsDbContext.cs`
-- [ ] T006 Add optional descending index on `LastModificationTime` in `services/agents/ClrSlate.Modules.AgentsAppModule/Data/AgentsDbContext.cs`
-- [ ] T007 Create DTOs (CreateAgentRequest, UpdateAgentRequest, AgentSummaryDto, AgentDetailsDto) in `services/agents/ClrSlate.Modules.AgentsAppModule/Controllers/Dto/`
-- [ ] T008 [P] Add FluentValidation Create validator in `services/agents/ClrSlate.Modules.AgentsAppModule/Controllers/Validators/CreateAgentRequestValidator.cs`
-- [ ] T009 [P] Add FluentValidation Update validator (checks version, no name change) in `services/agents/ClrSlate.Modules.AgentsAppModule/Controllers/Validators/UpdateAgentRequestValidator.cs`
-- [ ] T010 Add AutoMapper profile for Agent mappings in `services/agents/ClrSlate.Modules.AgentsAppModule/Abstraction/AgentMappingProfile.cs`
-- [ ] T011 Integrate static OpenAPI file serving in `services/agents/ClrSlate.AgentHub.ApiService/Program.cs`
-- [ ] T012 [P] Add error response contract type in `services/agents/ClrSlate.AgentHub.ApiService/Controllers/Errors/ErrorResponse.cs`
-- [ ] T013 Unit tests for validators & mapping in `tests/ClrSlate.Modules.AgentsAppModule.Tests/Validators/`
+- [X] T001 Create feature task folder structure confirmation (already present) in `specs/002-agents-crud/`
+- [X] T002 Add `Version` property (long, default=1) to persistence entity in `services/agents/ClrSlate.Modules.AgentsAppModule/Data/Entities/AgentDefinition.cs`
+- [X] T003 Add `Version` property to in-memory model (if needed for mapping) in `services/agents/ClrSlate.Modules.AgentsAppModule/Models/AgentDefinition.cs`
+- [X] T004 Rename Mongo collection property `ToDos` to `Agents` in `services/agents/ClrSlate.Modules.AgentsAppModule/Data/AgentsDbContext.cs`
+- [X] T005 Implement Mongo model configuration + unique index on Name in `services/agents/ClrSlate.Modules.AgentsAppModule/Data/AgentsDbContext.cs`
+- [X] T006 Add optional descending index on `LastModificationTime` in `services/agents/ClrSlate.Modules.AgentsAppModule/Data/AgentsDbContext.cs`
+- [X] T007 Create DTOs (CreateAgentRequest, UpdateAgentRequest, AgentSummaryDto, AgentDetailsDto) in `services/agents/ClrSlate.Modules.AgentsAppModule/Controllers/Dto/`
+- [X] T008 [P] Add FluentValidation Create validator in `services/agents/ClrSlate.Modules.AgentsAppModule/Controllers/Validators/CreateAgentRequestValidator.cs`
+- [X] T009 [P] Add FluentValidation Update validator (checks version, no name change) in `services/agents/ClrSlate.Modules.AgentsAppModule/Controllers/Validators/UpdateAgentRequestValidator.cs`
+- [X] T010 Add AutoMapper profile for Agent mappings in `services/agents/ClrSlate.Modules.AgentsAppModule/Abstraction/AgentMappingProfile.cs`
+- [X] T011 Integrate static OpenAPI file serving in `services/agents/ClrSlate.AgentHub.ApiService/Program.cs`
+- [X] T012 [P] Add error response contract type in `services/agents/ClrSlate.AgentHub.ApiService/Controllers/Errors/ErrorResponse.cs`
+- [X] T013 Unit tests for validators & mapping in `tests/ClrSlate.Modules.AgentsAppModule.Tests/Validators/`
 
 ### Phase 2: Foundational
 - [ ] T014 Define repository interface IAgentRepository in `services/agents/ClrSlate.Modules.AgentsAppModule/Abstraction/IAgentRepository.cs`
