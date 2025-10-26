@@ -8,6 +8,7 @@ using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.MongoDB;
+using ClrSlate.Modules.AgentsAppModule.Services;
 
 namespace ClrSlate.Modules.AgentsAppModule;
 
@@ -23,6 +24,7 @@ public class AgentsApp : AbpModule
         var services = context.Services;
 
         services.AddTransient<IAgentsRegistry, ConfigAgentsRegistry>();
+        services.AddTransient<IAgentsRegistry, MongoAgentsRegistry>();
         services.AddTransient<IAgentsCatalog, AgentsCatalog>();
 
         services.AddTransient<IModelsRegistry, ConfigModelsRegistry>();

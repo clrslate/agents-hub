@@ -14,7 +14,7 @@ public class OpenAiChatCompletionController(IAgentsCatalog agentsCatalog, IChatC
     [HttpGet("models")]
     public async Task<OpenAIModelList> GetAll()
     {
-        var agents = await agentsCatalog.GetAllAsync().ToListAsync();
+        var agents = await agentsCatalog.GetAllAsync();
         var models = agents.Select(a => new OpenAIModelDto(a.Name)).ToArray();
         return models;
     }
@@ -25,7 +25,8 @@ public class OpenAiChatCompletionController(IAgentsCatalog agentsCatalog, IChatC
         using var reader = new StreamReader(Request.Body);
         var body = await reader.ReadToEndAsync();
         var request = JsonSerializer.Deserialize<OpenAiChatCompletionRequest>(body);
-        var agentDefinition = await agentsCatalog.GetAllAsync().FirstOrDefaultAsync(a => a.Name == request?.Model);
+        var allAgents = await agentsCatalog.GetAllAsync();
+        var agentDefinition = allAgents.FirstOrDefault(a => a.Name == request?.Model);
         if (agentDefinition is null) return Results.BadRequest("Invalid request payload.");
         if (agentDefinition.Model is null) return Results.BadRequest("Agent not configured properly. Please contact administrator.");
 

@@ -1,0 +1,197 @@
+openapi: 3.1.0
+info:
+  title: Agent CRUD API
+  version: 0.1.0
+  description: CRUD endpoints for managing custom agents.
+servers:
+  - url: /api/agents
+paths:
+  /:
+    get:
+      summary: List agents
+      operationId: listAgents
+      parameters:
+        - name: includeDeleted
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - name: skip
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: take
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        '200':
+          description: Paged list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AgentSummary'
+                  total:
+                    type: integer
+    post:
+      summary: Create agent
+      operationId: createAgent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAgentRequest'
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              schema:
+                type: string
+        '409':
+          description: Name already exists
+  /{name}:
+    get:
+      summary: Get agent details
+      operationId: getAgent
+      parameters:
+        - $ref: '#/components/parameters/AgentName'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentDetails'
+        '404':
+          description: Not found
+    put:
+      summary: Update agent (full)
+      operationId: updateAgent
+      parameters:
+        - $ref: '#/components/parameters/AgentName'
+        - $ref: '#/components/parameters/IfMatchVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAgentRequest'
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentDetails'
+        '404':
+          description: Not found
+        '409':
+          description: Concurrency conflict
+    delete:
+      summary: Soft delete (archive) agent
+      operationId: deleteAgent
+      parameters:
+        - $ref: '#/components/parameters/AgentName'
+        - $ref: '#/components/parameters/IfMatchVersion'
+      responses:
+        '204':
+          description: Archived
+        '404':
+          description: Not found
+        '409':
+          description: Concurrency conflict
+components:
+  parameters:
+    AgentName:
+      name: name
+      in: path
+      required: true
+      schema:
+        type: string
+        pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+      description: Slug agent name
+    IfMatchVersion:
+      name: If-Match
+      in: header
+      required: true
+      schema:
+        type: string
+      description: Version number as plain integer string
+  schemas:
+    AgentSummary:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        model:
+          type: string
+        updatedAtUtc:
+          type: string
+          format: date-time
+    AgentDetails:
+      allOf:
+        - $ref: '#/components/schemas/AgentSummary'
+        - type: object
+          properties:
+            description:
+              type: string
+            instructions:
+              type: string
+              maxLength: 16000
+            version:
+              type: integer
+            isDeleted:
+              type: boolean
+    CreateAgentRequest:
+      type: object
+      required: [name, model]
+      properties:
+        name:
+          type: string
+          pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+          maxLength: 64
+        displayName:
+          type: string
+          maxLength: 128
+        description:
+          type: string
+          maxLength: 2048
+        instructions:
+          type: string
+          maxLength: 16000
+        model:
+          type: string
+    UpdateAgentRequest:
+      type: object
+      required: [model, version]
+      properties:
+        displayName:
+          type: string
+          maxLength: 128
+        description:
+          type: string
+          maxLength: 2048
+        instructions:
+          type: string
+          maxLength: 16000
+        model:
+          type: string
+        version:
+          type: integer
+  securitySchemes: {}
+security: []

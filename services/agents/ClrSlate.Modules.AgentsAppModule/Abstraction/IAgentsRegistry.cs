@@ -2,7 +2,7 @@
 
 namespace ClrSlate.Modules.AgentsAppModule.Abstraction;
 
-public interface IAgentsCatalog
+public interface IAgentsRegistry
 {
     Task<IEnumerable<AgentDefinition>> GetAllAsync(CancellationToken cancellationToken = default);
 }

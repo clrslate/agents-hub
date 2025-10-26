@@ -8,6 +8,6 @@ namespace ClrSlate.AgentHub.Modules.ToDoModule.Data;
 [ConnectionStringName(DatabaseName)]
 public class ToDoDbContext : AbpMongoDbContext
 {
-    public const string DatabaseName = "todo";
+    public const string DatabaseName = "agents";
     public IMongoCollection<ToDoEntity> ToDos => Collection<ToDoEntity>();
 }

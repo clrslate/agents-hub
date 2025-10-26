@@ -9,5 +9,5 @@ namespace ClrSlate.Modules.AgentsAppModule.Data;
 internal class AgentsDbContext : AbpMongoDbContext
 {
     public const string DatabaseName = "agents";
-    public IMongoCollection<AgentDefinition> ToDos => Collection<AgentDefinition>();
+    public IMongoCollection<AgentEntity> Agents => Collection<AgentEntity>();
 }

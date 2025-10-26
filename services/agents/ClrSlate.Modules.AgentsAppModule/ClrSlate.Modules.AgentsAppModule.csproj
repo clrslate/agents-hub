@@ -19,6 +19,7 @@
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="9.3.5" />
     <PackageReference Include="Volo.Abp.AutoMapper" Version="9.3.5" />
     <PackageReference Include="Volo.Abp.MongoDB" Version="9.3.5" />
+    <PackageReference Include="FluentValidation" Version="11.9.0" />
   </ItemGroup>
   
 </Project>
