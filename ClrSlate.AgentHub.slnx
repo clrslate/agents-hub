@@ -8,9 +8,6 @@
   <Folder Name="/services/todo/">
     <Project Path="services/todo/ClrSlate.AgentHub.Modules.ToDoModule/ClrSlate.AgentHub.Modules.ToDoModule.csproj" Id="38e6acd5-ca23-4a96-8813-7db56d14f6ef" />
   </Folder>
-  <Folder Name="/services/weather/">
-    <Project Path="services/weather/ClrSlate.AgentHub.Modules.WeatherModule/ClrSlate.AgentHub.Modules.WeatherModule.csproj" Id="5a220149-541c-4c46-a123-4479d883cf68" />
-  </Folder>
   <Folder Name="/shared/">
     <Project Path="shared/ClrSlate.Abp.Hosting.ServiceDefaults/ClrSlate.Abp.Hosting.ServiceDefaults.csproj" />
     <Project Path="shared/ClrSlate.AgentHub.ServiceDefaults/ClrSlate.AgentHub.ServiceDefaults.csproj" />

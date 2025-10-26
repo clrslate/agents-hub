@@ -13,7 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\shared\ClrSlate.Abp.Hosting.ServiceDefaults\ClrSlate.Abp.Hosting.ServiceDefaults.csproj" />
     <ProjectReference Include="..\agents\ClrSlate.Modules.AgentsAppModule\ClrSlate.Modules.AgentsAppModule.csproj" />
-    <ProjectReference Include="..\weather\ClrSlate.AgentHub.Modules.WeatherModule\ClrSlate.AgentHub.Modules.WeatherModule.csproj" />
     <ProjectReference Include="..\todo\ClrSlate.AgentHub.Modules.ToDoModule\ClrSlate.AgentHub.Modules.ToDoModule.csproj" />
   </ItemGroup>
 
